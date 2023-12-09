@@ -1,0 +1,22 @@
+
+.container{
+    max-width: 400px;
+    margin:50px auto;
+    padding: 20px;
+    background-color: #f7f7f78a;
+    border-radius: 7px;
+    border: 2px solid rgba(0, 0, 0, 0.048);
+}
+h1 {
+    text-align: center;
+}
+label{
+    font-weight: bold;
+}
+.form-control{
+    margin-bottom: 15px;
+}
+.btn-primary{
+    width: 100%;
+    margin-bottom: 15px;
+}
