@@ -4,6 +4,7 @@ import {Link , useNavigate} from 'react-router-dom';
 import { Form, Button , Container} from 'react-bootstrap';
 import axios from  'axios';
 import API_Url from '../../config/global';
+import "../styles/Signup.css"
 
 const Login =()=>{
 const [formdata,setFormdata]=useState({
@@ -23,7 +24,7 @@ const handle=async (e)=>{
        console.log(response);
      
         if(response.data=== "Invalid user and password"){
-           alert("Invalid user and password")
+           alert("Invalid user and password try forgot password")
            }
            else if(response.data=== "Server busy"){
            alert("verify your email");
@@ -54,7 +55,8 @@ const handle=async (e)=>{
         <Button varient='primary' type="submit">Login</Button>
        
     </Form>
-    <p>Dont have an account <Link to="/">Signup</Link> </p>
+    <p>forgot password ?<Link to="/changepass">Click here</Link></p>
+    <p>Dont have an account ?<Link to="/">Signup</Link> </p>
 </Container>)
 };
 
