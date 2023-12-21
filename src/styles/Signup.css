@@ -1,7 +1,7 @@
 
 .container{
     max-width: 400px;
-    margin:50px auto;
+    margin:30px auto;
     padding: 20px;
     background-color: #f7f7f78a;
     border-radius: 7px;
@@ -19,4 +19,8 @@ label{
 .btn-primary{
     width: 100%;
     margin-bottom: 15px;
+    color: black;
+    font-family: sans-serif;
+    font-size: 20px;
+    background:linear-gradient(-340deg,rgb(255, 230, 3),rgb(255, 153, 0) ,rgb(255, 94, 0));
 }

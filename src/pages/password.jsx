@@ -1,9 +1,12 @@
 import React from 'react'
 import { Container,Form ,Button} from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 import { useState } from 'react'
-import API_Url from '../../config/global'
 import axios from "axios"
+import chat from "../assets/chat2.png"
+import "../styles/chat.css"
  const PasswordC = () => {
+  const API_Url=import.meta.env.VITE_APIURL
   const [formdata,setFormdata]=useState({
     email:"",
     password:"",
@@ -24,6 +27,11 @@ import axios from "axios"
     else{alert("password Didn't match")}
   }
   return (
+    <div>
+       <div className='top'>
+            <img src={chat} className='chat'></img>
+            <h1 className='head'>Chatz</h1>
+             </div>
     <Container><h1>Change Password</h1>
         <Form onSubmit={handle}>
         <Form.Group>
@@ -40,8 +48,10 @@ import axios from "axios"
             </Form.Group>
             <br></br>
             <Button varient="primary" type="submit">Submit</Button>
+            <p>Move to Login page! <Link to="/login">Login</Link> </p> 
         </Form>
     </Container>
+    </div>
   )
 }
 export default PasswordC

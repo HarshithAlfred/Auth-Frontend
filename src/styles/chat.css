@@ -1,0 +1,45 @@
+.head{
+    background:linear-gradient(-340deg,#ffe603,rgb(255, 94, 0));
+    background:linear-gradient(-340deg, yellow 0%,red);
+    font-size: 40px;
+    background-clip: text;
+    color:transparent;
+    padding:0;
+    margin: 0;
+}
+.chat{
+    max-width: 50px;
+    height: auto;
+    
+}
+.top{
+    margin-top: 3%;
+    display:flex;
+    justify-content: space-around;
+    
+}
+.craz{
+    padding: 0;
+    text-align: center;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-size: 30px;
+    font-weight: bolder;
+    background:linear-gradient(-340deg, yellow 0%,red);
+    background-clip: text;
+    color:transparent;
+    background-size: 500% 500%;
+    animation: fungi 2s ease-in-out infinite;
+    border: none;
+}
+@keyframes fungi {
+    0%,100%{
+        background-position: 0 50%;
+    }
+    50%{
+        background-position: 100% 100%;
+    }
+}
+.craz:hover{
+    font-size: 50px;
+    animation: fungi 0.2s ease-in-out infinite;
+}

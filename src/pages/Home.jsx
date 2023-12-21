@@ -1,10 +1,12 @@
 import React, { useEffect , useState } from 'react'
 import { Button, Container } from 'react-bootstrap'
+import { Link } from 'react-router-dom';
 import axios from  'axios';
-import API_Url from '../../config/global';
-
+import chat from "../assets/chat2.png"
+import "../styles/chat.css"
 function Home() {  
-  const [res,setres]=useState({})
+  const API_Url=import.meta.env.VITE_APIURL
+  const [resl,setresl]=useState([]);
   useEffect(()=>{
     const user =JSON.parse(localStorage.getItem("userInfo"));
     if (user && user.token){
@@ -19,7 +21,6 @@ function Home() {
         }
       }
       const response= await axios.get(`${API_Url}/home`,config);
-      console.log(response);
       if(response.data ==="Invalid Token"){
         alert("login again")
       }
@@ -27,18 +28,24 @@ function Home() {
          alert("Unauthorized login")
       }
       else if(response?.status){
-        setres(response.data);
+        setresl(response.data);
       }
     }
     catch(e){console.log(e)}
   }
   return (
+    <div>
+       <div className='top'>
+            <img src={chat} className='chat'></img>
+            <h1 className='head'>Chatz</h1>
+             </div>
     <Container>
-      <h1>Welcome to HomePage</h1>
-      <p>we are here to serve you </p>
-      <p>{res.name}</p>
-      <Button> get started</Button>
+      <h1>Welcome to <p>Chatz</p></h1>
+      <p style={{textAlign:'center'}}>We are here to serve you </p>
+      <p className='craz'>{resl.name}</p>
+      <Link to="/chat"><Button>get started</Button></Link>
     </Container>
+    </div>
   )
 }
 

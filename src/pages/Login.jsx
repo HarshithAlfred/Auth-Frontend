@@ -3,10 +3,11 @@ import React ,{useState} from 'react';
 import {Link , useNavigate} from 'react-router-dom';
 import { Form, Button , Container} from 'react-bootstrap';
 import axios from  'axios';
-import API_Url from '../../config/global';
 import "../styles/Signup.css"
-
+import chat from "../assets/chat2.png"
+import "../styles/chat.css"
 const Login =()=>{
+    const API_Url=import.meta.env.VITE_APIURL;
 const [formdata,setFormdata]=useState({
         email:"",
         password:""
@@ -39,7 +40,11 @@ const handle=async (e)=>{
 
 }
   return (
-   
+   <div>
+     <div className='top'>
+            <img src={chat} className='chat'></img>
+            <h1 className='head'>Chatz</h1>
+             </div>
     <Container>
     <h1> Login Form</h1>
     <Form onSubmit={handle}>
@@ -57,7 +62,8 @@ const handle=async (e)=>{
     </Form>
     <p>forgot password ?<Link to="/changepass">Click here</Link></p>
     <p>Dont have an account ?<Link to="/">Signup</Link> </p>
-</Container>)
+</Container>
+</div>)
 };
 
 export default Login
