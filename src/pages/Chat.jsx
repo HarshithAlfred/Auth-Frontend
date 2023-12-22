@@ -16,10 +16,11 @@ function Chat() {
 //  const socketref =useRef()
   useEffect(()=>{ 
     const socket = socketioclient(endpoint);
-    console.log('things started')
+    console.log('things started 1',endpoint)
     socket.on('chat message',(data)=>{
       setMessages((prevMessages)=>[...prevMessages,data])
     });
+    console.log('things started 2',endpoint)
     return ()=>{socket.disconnect();};},[]);
   const handle=(e)=>{
     
@@ -28,6 +29,7 @@ function Chat() {
   
    const handleSendMessage =()=>{
     const socket = socketioclient(endpoint);
+    console.log('socket',socket,'endpoint',endpoint)
     const data={name,message}
     socket.emit('chat message',data)
     //setMessages((prevMessages)=>[...prevMessages,data])
