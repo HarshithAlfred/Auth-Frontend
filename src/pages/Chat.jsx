@@ -16,6 +16,7 @@ function Chat() {
 //  const socketref =useRef()
   useEffect(()=>{ 
     const socket = socketioclient(endpoint);
+    console.log('things started')
     socket.on('chat message',(data)=>{
       setMessages((prevMessages)=>[...prevMessages,data])
     });
