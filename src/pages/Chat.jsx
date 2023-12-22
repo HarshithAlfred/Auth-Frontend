@@ -12,7 +12,7 @@ function Chat() {
   const API_Url=import.meta.env.VITE_APIURL
   const [messages,setMessages]=useState([]);
   const [message,setMessage]=useState([]);
-  const endpoint="https://auth-backend-6dn1.onrender.com:4001"//import.meta.env.VITE_ENDPOINT
+  const endpoint="https://auth-backend-6dn1.onrender.com"//import.meta.env.VITE_ENDPOINT
 //  const socketref =useRef()
   useEffect(()=>{ 
     const socket = socketioclient(endpoint);
