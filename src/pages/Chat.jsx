@@ -12,17 +12,15 @@ function Chat() {
   const API_Url=import.meta.env.VITE_APIURL
   const [messages,setMessages]=useState([]);
   const [message,setMessage]=useState([]);
-  const endpoint="https://chat-tdhw.onrender.com"//import.meta.env.VITE_ENDPOINT
+  const endpoint=import.meta.env.VITE_ENDPOINT
 //  const socketref =useRef()
   useEffect(()=>{ 
     const socket = socketioclient(endpoint, {
       path: '/socket.io',
     });
-    console.log('things started 1',endpoint)
     socket.on('chat message',(data)=>{
       setMessages((prevMessages)=>[...prevMessages,data])
     });
-    console.log('things started 2',endpoint)
     return ()=>{socket.disconnect();};},[]);
   const handle=(e)=>{
     
@@ -33,7 +31,6 @@ function Chat() {
     const socket = socketioclient(endpoint, {
       path: '/socket.io',
     });
-    console.log('socket',socket,'endpoint',endpoint)
     const data={name,message}
     socket.emit('chat message',data)
     //setMessages((prevMessages)=>[...prevMessages,data])
@@ -81,11 +78,11 @@ if(name){
          <div>
       
       <div>
-      <h1 style={{textAlign:'center'}}>#General</h1>
+      <h1 style={{textAlign:'center'}} className='head'>#General</h1>
         <ul style={{ paddingLeft:'0'}}>
           {messages.map((msg, index) => (   
             <li key={index} style={{listStyleType: 'none',paddingBottom:'0.4rem',textAlign:msg.name==name?'end':'start'}}>
-              <strong style={{color:msg.name==name?'orange':'yellow'}}>{msg.name}:</strong> <span style={{maxWidth:'80%',wordWrap:'break-word'}}>{msg.message}</span>
+              <strong style={{color:msg.name==name?'rgb(155, 0, 0)':'rgb(0, 155, 155)'}}>{msg.name}:</strong> <span style={{maxWidth:'80%',wordWrap:'break-word'}}>{msg.message}</span>
             </li>
             ))}
         </ul>
@@ -96,8 +93,8 @@ if(name){
           value={message}
           onChange={(e) => setMessage(e.target.value)}
           onKeyDown={handle}
-        style={{width:'80%',borderRadius:'56px',border:'2px solid black'}}/>
-        <img src={send} onClick={handleSendMessage} style={{width:'40px'}}></img>
+        style={{width:'83%',borderRadius:'56px',border:'2px solid black'}}/>
+        <img src={send} onClick={handleSendMessage} style={{maxWidth:'40px'}}></img>
       </div>
     </div>
         

@@ -1,8 +1,9 @@
 :root , #root{
-    background-color: rgba(29, 29, 29, 0.849);
+    background:linear-gradient(-200deg, rgb(175, 96, 175),purple,rgb(55, 155, 189));
+    
     background-repeat: no-repeat;
     background-attachment: fixed;
-    background-size: 200%,200%;
+    background-size: 500%,500%;
     animation: fungi 8s ease-in-out infinite;
     border: none;
 }
