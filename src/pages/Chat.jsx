@@ -15,7 +15,9 @@ function Chat() {
   const endpoint="https://auth-backend-6dn1.onrender.com"//import.meta.env.VITE_ENDPOINT
 //  const socketref =useRef()
   useEffect(()=>{ 
-    const socket = socketioclient(endpoint);
+    const socket = socketioclient(endpoint, {
+      path: '/socket.io',
+    });
     console.log('things started 1',endpoint)
     socket.on('chat message',(data)=>{
       setMessages((prevMessages)=>[...prevMessages,data])
@@ -28,7 +30,9 @@ function Chat() {
  }
   
    const handleSendMessage =()=>{
-    const socket = socketioclient(endpoint);
+    const socket = socketioclient(endpoint, {
+      path: '/socket.io',
+    });
     console.log('socket',socket,'endpoint',endpoint)
     const data={name,message}
     socket.emit('chat message',data)
